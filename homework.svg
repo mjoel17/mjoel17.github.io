@@ -4,14 +4,14 @@
     <head><meta charset="utf-8"/></head>
     <body>
 
-<svg>
+<svg width="4096px" height="2160px">
 
         <circle r="75px" cx="100px" cy="100px" fill="black" />
         <circle r="70px" cx="100px" cy="100px" fill="white" />
         <circle r="65px" cx="100px" cy="100px" fill="black" />
         <circle r="40px" cx="100px" cy="100px" fill="blue" />
         <circle r="35px" cx="100px" cy="100px" fill="black" />
-        <circle r="30px" cx="100px" cy="100px" fill="aqua" />
+        <circle r="30px" cx="100px" cy="100px" fill="cyan" />
         <circle r="25px" cx="100px" cy="100px" fill="black" />
         <rect x="40px" y="105px" width="500px" height="5px" fill="black" />
         <circle r="25px" cx="10px" cy="175px" fill="black" />
