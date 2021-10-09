@@ -1,74 +1,108 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <hi id="title">Luis Joel Méndez González</h1>
-    <script src="sayText.js"></script>
-  
-    <p> Here is my JavaScript Test page: </p>
+    <head>
+            <meta charset="utf-8" />
+            <title>"Test Page"</title>
+    </head>
+<body>
 
-        <script>
+<h1 id="name"></h1>
 
-            var myNumber = 45;
+<script>
 
-            console.log(myNumber);
+    document.getElementById("name").innerHTML = "Luis Joel Méndez González";
 
-            myNumber = myNumber + 20;
+    // VARIABLES + NUMBER VARIABLES
 
-            console.log(myNumber);
+    var myNumber = 42;
 
-            myNumber = myNumber * 10;
+    myNumber = myNumber + 10;
 
-            console.log(myNumber);
+    console.log(myNumber);
 
-            myNumber = myNumber - 10;
-            console.log(myNumber);
+    // STRING VARIABLES
 
-            //Strings
-            var myString = "JavaScript";
-            console.log = ("D3 and " + myString);
-            console.log(lenguage1 + " and " + lenguage2 + " are cool!");
+    var myString = "Esta es mi página de prueba de Javascript.";
 
-            var myNumber = 20;
+    console.log("D3 and " + myString);
 
-            //Booleans
-            var bigNumber = myNumber > 100;
-            console.log(bigNumber);
+    // BOOLEAN VARIABLES
 
-            //Arrays
-            var studentNames0 = ["Coco", "Fresa", "Banana", "Yuca"]; 
-            console.log(studentNames[0]);
+    var myNumber = 20; 
 
-                var studentNames0 = {
-                    username: "Coco",
-                    color: "pink",
-                    hasPet: true
-                }; 
+    var bigNumber = myNumber > 100; 
 
-            //Functions
-            var sayHello = function(txt) {
+    console.log(bigNumber); 
+
+    // ARRAY VARIABLES
+
+    var myArray = ["one", "two", "three", "four"];
+
+    console.log(myArray[0]);
+
+    // OBJECT VARIABLES
+
+    var myObject = {
+        name: "Luis Joel Méndez González",
+        color: "Red"
+    };
+
+    console.log(myObject.name);
+
+    // FUNCTIONS
+
+    var sayHello = function () {
+        console.log("¡Hola!");
+    }
+
+    sayHello();
+
+    // FUNCTION VARIABLES
+
+    var sayText = function(txt) {
             console.log(txt);
-            }
+    }
 
-            sayText("Goodbye");
+    sayText = ("¡Adiós!");
 
-            var sayText = function(text) {
-                var alertString = "Hello " + txt + "!";
+    // FUNCTION RETURNS
 
-            }
+    var plusTen = function(num) {
+        return num + 10;
+    }
 
-            console.log(text);
+    var thirty = plusTen(20);
 
-var MyNumber = 12;
-if (MyNumber > 10) {
-    console.log("greater than 10!");
+    console.log(thirty);
+
+    // CONDITIONAL STATEMENTS 
+
+    var myNumber = 12;
+
+    if (myNumber > 10) {
+        console.log("¡Máyor que diez!");
     }
     else {
-    console.log("less than 10!");
-        }
+        console.log("¡Menor que diez!");
+    } 
 
-  console.log(numbers.square(4));
+    // COMBINATION
+
+    function greatherThanTen(num) {
+        
+        if (num > 10) {
+            console.log("¡Mayor que diez!");
+    }
+        else {
+            console.log("¡Menor que diez!");
+    }
+
+    return num > 10; 
+
+    } 
+
+    console.log(greatherThanTen(20));
 
             </script>
-  </body>
-</html>
+        </body>
+    </html>
