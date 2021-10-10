@@ -16,5 +16,5 @@ function getInfo() {
         return
         }
     }
-    console.log("Incorrect username or password")
+    console.log("Ups! Incorrect username or password :(")
 }

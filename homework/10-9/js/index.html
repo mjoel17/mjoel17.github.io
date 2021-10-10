@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
         <title>JavaScript Homework</title>
+        <script src='http://use.edgefonts.net/creepster.js'>
+        </script>
+        <script src='http://use.edgefonts.net/de-walpergens-pica.js'></script>
     </head>
-<body>
+    <center>
+            <!---Page design-->
+    <body style="background-color: rgb(36, 36, 36);">
+    <h2 style="font-family:creepster; color: red; font-size: 50px;">Find the mistery behind the door...</h2>
+    <h3 style="font-family: de-walpergens-pica; color: rgb(255, 255, 255); font-size: 20px">How to kill a vampire?</h3>
+    <h4 style="font-family:de-walpergens-pica; color: white; font-size: 15px;">Unlock the door writing the two correct options:</h4>
+    <div class="text-center">
+    <ol style="font-size: 15px; font-family:de-walpergens-pica; color: white; display:inline-block">
+        <li style="display: center">Garlic</li>
+        <li style="text-align: center">Fire</li>
+        <li style="text-align: center">Decapitation</li>
+        <li style="text-align: center">Water</li>
+    </ol>
+    </div>
+            <!---Log in button-->
             <form>
-                <input id="username">
-                <input id="password">
-                <button type="button" onclick="getInfo()">CLICK HERE</button>
+                <input type="text" id="username" placeholder="Option #1">
+                <input type="password" id="password" placeholder="Option #2">
+                <button type="button" onclick="getInfo()">UNLOCK</button>
             </form>
 
-            <script src="js/main.js"></script>
-</body>
+            <script src="/homework/10-9/js/main.js"></script>
+            <img src="https://cdn.everskies.com/media/attachment/ZyGmxgkmttFPzbPGO5ql.gif"; width="300" height="450">
+    </center>
+    </body>
 </html>
