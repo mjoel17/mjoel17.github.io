@@ -1,7 +1,7 @@
 var objPeople = [
     {
-        username: "ARTG5330",
-        password: "Fall 2021"
+        username: "7853",
+        password: "3795"
     }
 ]
 
@@ -12,7 +12,7 @@ function getInfo() {
     for(var i = 0; i < objPeople.length; i++) {
         if(username == objPeople[i].username && password == objPeople[i].
         password) {
-        console.log(username + " Welcome to my Javascript Homework!")
+            window.location.replace("https://i.gifer.com/origin/ab/ab3e8242a8421d7884bad5a19ad33d6d.gif");
         return
         }
     }
