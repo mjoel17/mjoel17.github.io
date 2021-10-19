@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>D3 Homework</title>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+    </head>
+
+    <center>
+    
+    <body>
+
+    <h1 style="font-family: Arial; font-size: 36px; font-style: normal; font-weight: bold; id=title;">Countries with most Miss Universe</h1>
+    <h2 style="font-family: Arial; font-size: 18px; font-style: normal; font-weight: lighter; id=subtitle;">South Africa and Sweden are tied in the 4th place</h2>
+
+    </center>
+
+    <svg id="MissUniverse">
+        <rect fill="pink" x="20" y="300" width="30" height="32"></rect>
+        <rect fill="pink" x="55" y="357" width="30" height="28"></rect>
+        <rect fill="pink" x="90" y="290" width="30" height="20"></rect>
+        <text fill="black" font-size="14px" text-anchor="middle" x="20" y="300" dx="15" dy="1em">8</text>
+        <text fill="black" font-size="14px" text-anchor="middle" x="55" y="357" dx="15" dy="1em">7</text>
+        <text fill="black" font-size="14px" text-anchor="middle" x="90" y="290" dx="15" dy="1em">5</text>
+        <rect fill="pink" x="125" y="323" width="30" height="16"></rect>
+        <text fill="black" font-size="14px" text-anchor="middle" x="125" y="323" dx="15" dy="1em">4</text>
+        <rect fill="pink" x="160" y="341" width="30" height="12"></rect>
+        <rect fill="pink" x="195" y="183" width="30" height="12"></rect>
+        <text fill="black" font-size="14px" text-anchor="middle" x="160" y="341" dx="15" dy="1em">3</text>
+        <text fill="black" font-size="14px" text-anchor="middle" x="195" y="183" dx="15" dy="1em">3</text>
+    </svg>
+
+	<script>  
+
+		var data = [8, 7, 5, 4, 3, 3];
+
+		var width  = 400;	
+		var height = 400;	
+
+        var svg = d3.select("#MissUniverse")		
+			        .attr("width", width)	
+			        .attr("height", height);
+
+        //outer padding
+        var padding = { top: 20 , right: 20, bottom: 20, left: 20 };
+        //rect's width + space
+        var rectStep = 35;	
+        //rect's width
+        var rectWidth = 30;
+
+
+            function draw(){
+
+	
+	        var updateRect = svg.selectAll("rect")
+	                            .data(data);
+	
+	
+	        var enterRect = updateRect.enter();
+	
+	
+	        var exitRect = updateRect.exit();
+	
+	        //Enter Rect
+	            updateRect.attr("fill","#e60000")
+	                      .on("mouseover",function(d,i){
+			            d3.select(this)
+				          .attr("fill","yellow");
+		        })
+		                  .on("mouseout",function(d,i){
+			            d3.select(this)
+				          .transition()
+		                  .duration(500)
+				          .attr("fill","#e60000");
+		    })			
+			              .attr("x", function(d,i){	
+				return padding.left + i * rectStep;
+			})
+			              .attr("y", function(d,i){
+				return height - padding.bottom - d;
+			})
+			              .attr("width",rectWidth)		//set up rect's width
+			              .attr("height",function(d,i){	//set up rect's height
+				return d;
+			});
+
+	            //Update rects
+	            enterRect.append("rect")
+			             .attr("fill","#e60000")
+			             .on("mouseover",function(d,i){
+			           d3.select(this)
+				.attr("fill","yellow");
+		     })
+		        .on("mouseout",function(d,i){
+			  d3.select(this)
+				.transition()
+		        .duration(500)
+				.attr("fill","#e60000");
+		})				
+			    .attr("x", function(d,i){		
+				return padding.left + i * rectStep;
+			})
+			    .attr("y", function(d,i){		
+				return height- padding.bottom - d;
+			})
+			             .attr("width",rectWidth)		
+			             .attr("height",function(d,i){	
+				return d;
+			});
+
+	            //Exit
+	            exitRect.remove();
+
+	
+	            //Update text(number)
+	            var updateText = svg.selectAll("text")
+	                                .data(data);
+	
+	            //Enter text(number)
+	            var enterText = updateText.enter();
+	
+	            //Exit text(number)
+	            var exitText = updateText.exit();
+	
+	            //1.text's attr
+	            updateText.attr("fill","white")
+	                      .attr("font-size","14px")
+	                      .attr("text-anchor","middle")
+	                      .attr("x", function(d,i){
+		                  return padding.left + i * rectStep;
+	                      })
+	                      .attr("y", function(d,i){
+		                  return height- padding.bottom - d;
+	                      })
+	                      .attr("dx",rectWidth/2)
+	                      .attr("dy","1em")
+	                      .text(function(d,i){
+		                   return d;
+	                        });
+	
+	             //2. 
+	             enterText.append("text")
+	                      .attr("fill","white")
+	                      .attr("font-size","14px")
+	                      .attr("text-anchor","middle")
+	                      .attr("x", function(d,i){
+		                        return padding.left + i * rectStep;
+	                            })
+	                      .attr("y", function(d,i){
+		                        return height- padding.bottom - d;
+	                            })
+	                      .attr("dx",rectWidth/2)
+	                      .attr("dy","1em")
+	                      .text(function(d,i){
+		                        return d;
+	                       });
+	
+	             //3. 
+	             exitText.remove();
+                 }
+
+                 draw();
+
+
+
+                function sort(){
+	                     data.sort(d3.ascending);
+	                     draw();
+                         }
+
+
+                function add(){
+	            data.push( Math.floor(Math.random() * 350) );
+	                     draw();
+                         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                //The third function
+                function change(){
+                	
+
+	
+	        var updateRect = svg.selectAll("rect")
+	                            .data(data);
+	
+	
+	        var enterRect = updateRect.enter();
+	
+	
+	        var exitRect = updateRect.exit();
+	
+	        //Enter Rect
+
+			               attr("x", function(d,i){	
+				return padding.left + i * rectStep;
+			})
+			              .attr("y", function(d,i){
+				return height - padding.bottom - d;
+			})
+			              .attr("width",rectWidth)		//set up rect's width
+			              .attr("height",function(d,i){	//set up rect's height
+				return d;
+			});
+			              
+	            //Update rects	
+			             attr("x", function(d,i){		
+				return padding.left + i * rectStep;
+			})
+			             .attr("y", function(d,i){		
+				return height- padding.bottom - d;
+			})
+			             .attr("width",rectWidth)		
+			             .attr("height",function(d,i){	
+				return d;
+			});
+
+
+	            //Exit
+	            exitRect.remove();
+
+	
+	            //Update text(number)
+	            var updateText = svg.selectAll("text")
+	                                .data(data);
+	
+	            //Enter text(number)
+	            var enterText = updateText.enter();
+	
+	            //Exit text(number)
+	            var exitText = updateText.exit();
+	
+	            //1.text's attr
+	            updateText.attr("fill","white")
+	                      .attr("font-size","14px")
+	                      .attr("text-anchor","middle")
+	                      .attr("x", function(d,i){
+		                  return padding.left + i * rectStep;
+	                      })
+	                      .attr("y", function(d,i){
+		                  return height- padding.bottom - d;
+	                      })
+	                      .attr("dx",rectWidth/2)
+	                      .attr("dy","1em")
+	                      .text(function(d,i){
+		                   return d;
+	                        });
+	
+	             //2. 
+	             enterText.append("text")
+	                      .attr("fill","white")
+	                      .attr("font-size","14px")
+	                      .attr("text-anchor","middle")
+	                      .attr("x", function(d,i){
+		                        return padding.left + i * rectStep;
+	                            })
+	                      .attr("y", function(d,i){
+		                        return height- padding.bottom - d;
+	                            })
+	                      .attr("dx",rectWidth/2)
+	                      .attr("dy","1em")
+	                      .text(function(d,i){
+		                        return d;
+	                       });
+	
+	             //3. 
+	             exitText.remove();
+                 }
+
+                //new dataarray loop
+            var updateRect = svg.selectAll("rect")
+	                            .data(data);
+	
+	
+	        var enterRect = updateRect.enter();
+	
+	
+	        var exitRect = updateRect.exit();
+	
+	        //Enter Rect
+			               attr("x", function(d,i){	
+				return padding.left + i * rectStep;
+			})
+			              .attr("y", function(d,i){
+				return height - padding.bottom - d;
+			})
+			              .attr("width",rectWidth)		//set up rect's width
+			              .attr("height",function(d,i){	//set up rect's height
+				return d;
+			});
+
+	            //Update rects
+			              attr("x", function(d,i){		
+				return padding.left + i * rectStep;
+			})
+			             .attr("y", function(d,i){		
+				return height- padding.bottom - d;
+			})
+			             .attr("width",rectWidth)		
+			             .attr("height",function(d,i){	
+				return d;
+			});
+
+			             
+
+	            //Exit
+	            exitRect.remove();
+             
+
+    </script> 
+
+    <br />
+        <div class="btn">
+        <button type="button" onclick="add()">   Add Values  </button>
+        </div>
+
+</body>
+</html>
