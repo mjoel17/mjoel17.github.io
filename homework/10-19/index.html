@@ -2,111 +2,87 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>D3 Homework</title>
+        <title>Magic colors</title>
         <script src="https://d3js.org/d3.v4.min.js"></script>
     </head>
+    <link href='https://fonts.googleapis.com/css?family=Limelight' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Livvic' rel='stylesheet'>
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAABAAAAAAEAAAEAAAAAAQAAAQAAAAABAAABAAAAAAEAEAEAAAAAAQERAQAAAAABEQERAAAAAAEQABEAAAAAARAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AAD//wAA998AAPffAAD33wAA998AAPbfAAD0XwAA8R8AAPOfAADznwAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
 
-    <center>
-    
     <body>
 
-    <h1 style="font-family: Arial; font-size: 36px; font-style: normal; font-weight: bold; id=title;">Countries with most Miss Universe</h1>
-    <h2 style="font-family: Arial; font-size: 18px; font-style: normal; font-weight: lighter; id=subtitle;">South Africa and Sweden are tied in the 4th place</h2>
+    <style>
+            body {
+              background-image: url("https://images.newscientist.com/wp-content/uploads/2019/07/02111520/gettyimages-157639696.jpg");
+            }
+    </style>
 
-    <svg id="rect-viz" width="200px" height="200px" fill="pink">
+    <center>
+
+    <h1 style="font-family: Limelight; font-size: 60px; font-style: normal; font-weight: bold; color: rgb(255, 255, 255); -webkit-text-stroke-color: rgb(29, 0, 43); -webkit-text-stroke-width: 0.01px;">Magic colors</h1>
+    <h2 style="font-family: Livvic; font-size: 20px; font-style: normal; font-weight: normal; color: rgb(255, 255, 255); -webkit-text-stroke-color: rgb(0, 0, 0); -webkit-text-stroke-width: 0px;">Find out your lucky color and make your wish come true:</h2>
+
+    <svg 
+    
+    id="rect-viz" width="250px" height="200px" fill="black"></svg>
         
     </svg>
     <br />
-    <button onclick="drawRects(data1)">United States</button>
-    <button onclick="drawRects(data2)">Venezuela</button>
-    <button onclick="drawRects(data2)">Puerto Rico</button>
+    <button onclick="drawRects(data1)">Love</button>
+    <button onclick="drawRects(data2)">Money</button>
+    <button onclick="drawRects(data3)">Health</button>
 
     <script>
             
-    var data1 = [
+            var data1 = [
         {
-            country: "United States",
+            wish: "Love",
             value: 8
 
         },
-        {
-            country: "Venezuela",
-            value: 7
-        }
     ];
 
     var data2 = [
         {
-            country: "Venezuela",
+            wish: "Money",
             value: 7
-        },
-        {
-            country:"Puerto Rico",
-            value: 5
         }
     ];
 
     var data3 = [
         {
-            country: "Puerto Rico",
+            wish: "Health",
             value: 5
-        },
-        {
-            country:"United States",
-            value: 8
         }
     ];
 
     function drawRects(dataArray) {
 
         function rectPosition(){
-            return 100 + 50;
         }
 
     var rects = d3.select("#rect-viz").selectAll("rect")
         .data(dataArray, function(d) {
-            return d.country;
+            return d.wish;
         });
-
-    // Entering Circles
 
         rects.enter().append("rect")
         .attr("fill", function(d) {
-            if (d.country == "United States") {
-                return "gray";
+            if (d.wish == "Love") {
+                return "pink";
             }
-            if (d.country == "United States") {
-                return "gray";
+            else if (d.wish == "Money") {
+                return "purple";
             }
-            if (d.country == "United States") {
-                return "gray";
-            }if (d.country == "United States") {
-                return "gray";
-            }
-            if (d.country == "United States") {
-                return "gray";
-            }
-            if (d.country == "United States") {
-                return "gray";
-            }
-            if (d.country == "United States") {
-                return "gray";
-            }
-            if (d.country == "United States") {
-                return "gray";
-            }
-            else if (d.country == "Puerto Rico") {
-                return "gold";
-            }
-            else if (d.country = "Venezuela") {
-                return "black";
+            else if (d.wish = "Health") {
+                return "yellow";
             }
         }).attr("id", function(d) {
-        return d.country;
+        return d.wish;
         })
         .attr("x", "200")
         .attr("y", function(d) { 
-            return d.value;
+            return d.wish;
         })
         .attr("width", "200")
         .attr("height", "200")
@@ -123,13 +99,10 @@
         .attr("width", "0")
         .remove();
 
-
-        // Updating Circles
         circles
             .transition().duration(1000)
             .attr("cx", rectsPosition);
 
-        // Exiting Circles
         circles.exit()
             .transition().duration(1000)
             .attr("r", "0")
@@ -139,8 +112,8 @@
 
     </script>
 
-    </center>
-
     </body>
+
+    </center>
 
     </html>
