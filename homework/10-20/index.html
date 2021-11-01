@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Data File</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+  </head>
+  <body>
+
+    <script>
+
+        // Loading TXT files
+
+        d3.text("file.txt", function(error, data) {
+            if (error) {
+                console.log(error);
+            }
+            else {
+                console.log("we´ve got data!");
+                console.log(data);
+        }
+        });
+
+        // Loading CSV File
+
+        d3.csv("data.csv", function(error, data) {
+
+        // Loop through array 
+
+        data.forEach(function(row) {
+        row.value = parseFloat(row.value);
+        });
+
+        //
+
+        var usData = data.filter(function(row) {
+            return row.["Crowns"] = "United States";
+        });
+        console.log("usData", usData);
+
+        var minimumValue = d3.min(data, function(row) {
+            return row.value;
+        });
+        console.log("min", minimumValue);
+        
+        var groupedData = d3.nest()
+        .key(function(d) {
+        return d.continent;
+         })
+        .entries(csvData);
+
+
+
+            console.log(data);
+
+        });
+
+        // Loading JSON File 
+
+        d3.json("data.json", function(error, data) {
+        
+        });
+
+        //
+
+        // Creating a Mapping
+
+        var nameMapping = {
+            PR: "Puerto Rico",
+            US: "United States", 
+            VNZ: "Venezuela",
+        
+        };
+
+        data.forEach(function(d) {
+            d.fullName = nameMapping[row["Miss Universe"]];
+
+
+        
+        });
+
+        console.log(data);
+
+        var url = "https://datausa.io/api/data?measures=Population&year=latest";
+        d3.json(url, function (err, popData) {
+            console.log(popData);
+        });
+
+    
+    </script>
+
+  </body>
+</html>
