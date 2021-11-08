@@ -12,7 +12,7 @@
     </head>
     <body>
 
-     <svg id="chart"></svg>
+     <svg id="chart">
        <g id="shapes"></g>
        <g id="x"></g>
        <g id="y"></g>
@@ -53,7 +53,7 @@
 
         function fetchData() {
         
-            d3.json(url, function (error, users) {
+            d3.json(url, function(error, users) {
 
                 data.unshift({
                     users: users,
@@ -124,15 +124,18 @@
                 return x(i + 1);
         })
         .transition().duration(frequency / 2)
-        .attr("height", function (d) {
+        .attr("height", function(d) {
             return barHeight(d.users);
         })
-        .attr("y", function (d) {
+        .attr("y", function(d) {
             return y(d.users);
         });
         // Bar "update" events and animation
         bars.transition().duration(frequency / 2)
             .attr("height", function(d) {
+                return barHeight(d.users);
+            })
+            .attr("x", function(d, i) {
                 return x(i + 1);
             })
             .attr("y", function(d) {
