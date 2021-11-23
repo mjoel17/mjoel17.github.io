@@ -14,3 +14,5 @@ d3.select("#Consumption_Capita")
     d3.select("#tooltip")
       .style("display", "none");
   });
+
+  
