@@ -1,223 +1,31 @@
 
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <title>How Plantains Became the Kings of Puerto Rico?</title>
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+<meta charset="utf-8" />
 <body>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<title>How Plantains Became the Kings of Puerto Rico?</title>
+<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+<link rel="icon" href="./favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="styles.css">
 
     <div id="banner">
-         <img src=PR_Harvest.gif>
+    <img src=PR_Harvest.gif>
     </div>
 
     <h2>An unbeatable king</h2>
     <br>
     <h3>Plantains have been the most eaten vegetable per capita in Puerto Rico since 2000.</h3>
-
-    <! --- Line Graph --- >  
-
-    <script>
-      window.onload = function () {
-
-var chart = new CanvasJS.Chart("chartContainer", {
-	title: {
-
-	},
-	axisX: {
-		valueFormatString: "####"
-    
-    
-	},
-	axisY2: {
-		title: "Consumption per Capita",
-
-	},
-	toolTip: {
-		shared: true
-	},
-	legend: {
-		cursor: "pointer",
-		verticalAlign: "top",
-		horizontalAlign: "center",
-		dockInsidePlotArea: false,
-		itemclick: toogleDataSeries
-	},
-	data: [{
-		type:"line",
-    color:"#254D32",
-		axisYType: "secondary",
-		name: "Plantains",
-		showInLegend: true,
-		markerSize: 0,
-		dataPoints: [		
-			{ x: 2000, y: 56.87 },
-			{ x: 2005, y: 43.52 },
-			{ x: 2010, y: 48.33 },
-			{ x: 2015, y: 51.56 }
-		]
-	},
-	{
-		type: "line",
-		axisYType: "secondary",
-		name: "Green Bananas",
-    color:"#3A7D44",
-		showInLegend: true,
-		markerSize: 0,
-		dataPoints: [
-			{ x: 2000, y: 21.31 },
-			{ x: 2005, y: 19.76 },
-			{ x: 2010, y: 12.15 },
-			{ x: 2015, y: 32.31 }
-		]
-	},
-	{
-		type: "line",
-		axisYType: "secondary",
-		name: "Tomato",
-    color: "#C5A2F6",
-		showInLegend: true,
-		markerSize: 0,
-		dataPoints: [
-			{ x: 2000, y: 6.52 },
-			{ x: 2005, y: 17.74 },
-			{ x: 2010, y: 18.38 },
-			{ x: 2015, y: 17.77 }
-		]
-	},
-	{
-		type: "line",
-		axisYType: "secondary",
-		name: "Orange and Mandarines",
-    color: "#DBA159",
-		showInLegend: true,
-		markerSize: 0,
-		dataPoints: [
-			{ x: 2000, y: 17.23 },
-			{ x: 2005, y: 12.21 },
-			{ x: 2010, y: 7.62 },
-			{ x: 2015, y: 9.74 }
-      ]
-	},
-	{
-		type: "line",
-		axisYType: "secondary",
-		name: "Ripe Bananas",
-    color: "#000000",
-		showInLegend: true,
-		markerSize: 0,
-		dataPoints: [
-			{ x: 2000, y: 11.38 },
-			{ x: 2005, y: 10.64 },
-			{ x: 2010, y: 6.54 },
-			{ x: 2015, y: 17.40 }
-		]
-  },
-	{
-		type: "line",
-		axisYType: "secondary",
-		name: "Onions",
-    color: "#FB5607",
-		showInLegend: true,
-		markerSize: 0,
-		dataPoints: [
-			{ x: 2000, y: 9.95 },
-			{ x: 2005, y: 8.07 },
-			{ x: 2010, y: 10.51 },
-			{ x: 2015, y: 10.08 }
-		]
-  },
-	{
-		type: "line",
-		axisYType: "secondary",
-		name: "Pumpkins",
-    color: "#DBA159",
-		showInLegend: true,
-		markerSize: 0,
-		dataPoints: [
-			{ x: 2000, y: 9.59 },
-			{ x: 2005, y: 8.78 },
-			{ x: 2010, y: 5.41 },
-			{ x: 2015, y: 8.70 }
-		]
-  },
-	{
-		type: "line",
-		axisYType: "secondary",
-		name: "Lettuce",
-    color: "#DBA159",
-		showInLegend: true,
-		markerSize: 0,
-		dataPoints: [
-			{ x: 2000, y: 8.59 },
-			{ x: 2005, y: 6.18 },
-			{ x: 2010, y: 5.03 },
-			{ x: 2015, y: 7.79 }
-		]
-  },
-	{
-		type: "line",
-		axisYType: "secondary",
-		name: "Yautia",
-    color: "#C1666B",
-		showInLegend: true,
-		markerSize: 0,
-		dataPoints: [
-			{ x: 2000, y: 8.38 },
-			{ x: 2005, y: 7.01 },
-			{ x: 2010, y: 4.14 },
-			{ x: 2015, y: 6.12 }
-		]
-  },
-	{
-		type: "line",
-		axisYType: "secondary",
-		name: "Watermelons",
-    color: "#731DD8",
-		showInLegend: true,
-		markerSize: 0,
-		dataPoints: [
-			{ x: 2000, y: 4.11 },
-			{ x: 2005, y: 4.82 },
-			{ x: 2010, y: 3.48 },
-			{ x: 2015, y: 6.31 }
-		]
-	}]
-});
-chart.render();
-
-function toogleDataSeries(e){
-	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-		e.dataSeries.visible = false;
-	} else{
-		e.dataSeries.visible = true;
-	}
-	chart.render();
-}
-
-}
-</script>
-</head>
-<body>
-<div id="chartContainer" style="height: 500px; width: 81.5%; padding-left: 90px; padding-top: 125px"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-</body>
-</html>
-
-    <div class="section">
-
-    <! --- Line Graph --- >  
   
-    <script src="./banner.js"></script>
-    <script>
-      d3.csv("PR - FRUITS_VEGETABLES.csv", function(error, data) {
-               console.log(data);
-            });
+<script src="./banner.js"></script>
+
+<script>
+
+xxx
+
 </script>
 
+<script> d3.json("PR - FRUITS_VEGETABLES.JSON", function(error, data) {
+console.log(data) }); </script>
 </body>
 </html>
